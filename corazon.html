@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazón Neón Móvil</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .frase {
+            font-family: 'Pacifico', cursive;
+            font-size: 5vw; /* Tamaño de texto adaptable */
+            color: #ff00ff;
+            position: absolute;
+            bottom: 10%;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff0099, 0 0 30px #ff0066;
+            text-align: center;
+            padding: 0 10%;
+            animation: brillo 2s infinite alternate;
+        }
+
+        @keyframes brillo {
+            0% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff0099, 0 0 30px #ff0066; }
+            100% { text-shadow: 0 0 20px #ff33ff, 0 0 30px #ff66ff, 0 0 40px #ff99ff; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <canvas id="heartCanvas"></canvas>
+    <div class="frase">"Eres la luz de mi corazón"</div>
+
+    <script>
+        const canvas = document.getElementById("heartCanvas");
+        const ctx = canvas.getContext("2d");
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+
+        function drawHeart(scaleFactor, colorShift) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            let scale = (canvas.width / 25) * scaleFactor; // Escala adaptable
+            let offsetX = canvas.width / 2;
+            let offsetY = canvas.height / 2;
+            let glowIntensity = Math.sin(Date.now() * 0.007) * 15 + 20;
+
+            ctx.beginPath();
+            for (let t = 0; t < Math.PI * 2; t += 0.005) {
+                let x = scale * (16 * Math.pow(Math.sin(t), 3));
+                let y = -scale * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+
+                let gradient = ctx.createRadialGradient(x + offsetX, y + offsetY, 5, x + offsetX, y + offsetY, 25);
+                
+                let r = Math.floor(255 * (0.6 + 0.4 * Math.sin(colorShift)));
+                let g = Math.floor(50 + 200 * Math.abs(Math.cos(colorShift)));
+                let b = Math.floor(255 * (0.4 + 0.6 * Math.sin(colorShift + Math.PI)));
+
+                gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 1)`);
+                gradient.addColorStop(0.5, `rgba(255, 255, 255, 0.6)`);
+                gradient.addColorStop(1, `rgba(${b}, ${r}, ${g}, 0.3)`);
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = Math.max(6, canvas.width / 100); // Línea adaptable
+                ctx.shadowColor = `rgba(${r}, ${g}, ${b}, 0.9)`;
+                ctx.shadowBlur = glowIntensity;
+                ctx.lineCap = "round";
+
+                if (t === 0) ctx.moveTo(x + offsetX, y + offsetY);
+                else ctx.lineTo(x + offsetX, y + offsetY);
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+
+        function animate() {
+            let scaleFactor = 1 + Math.sin(Date.now() * 0.005) * 0.1;
+            let colorShift = Date.now() * 0.002;
+            drawHeart(scaleFactor, colorShift);
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TryHard X</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #0f0f0f;
+            color: #fff;
+            background-image: url('C:/Users/MARCELO/Documents/ht/fondo.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        header {
+            text-align: center;
+            padding: 30px;
+            font-size: 3em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
+        }
+        .separator {
+            height: 5px;
+            background: linear-gradient(to right, #ff4747, #47ff9c, #479cff);
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 40px 10px;
+        }
+        .card {
+            background: linear-gradient(145deg, #1a1a1a, #292929);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            width: 280px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+        .card h3 {
+            margin-bottom: 20px;
+            color: #ffc107;
+            font-size: 1.5em;
+            text-shadow: 0px 2px 4px rgba(255, 193, 7, 0.7);
+        }
+        .card button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            background: linear-gradient(90deg, #ffca28, #ffc107);
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(255, 193, 7, 0.5);
+            transition: background 0.3s, transform 0.3s;
+        }
+        .card button:hover {
+            background: #ffe082;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            margin: 30px 0 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #eee;
+            text-shadow: 0px 2px 6px rgba(255, 255, 255, 0.3);
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .social-icons img:hover {
+            transform: scale(1.2);
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <header>MARCELO CHEATS</header>
+    <div class="separator"></div>
+    <div class="container">
+        <div class="card">
+            <h3>TRYHARD AMARILLO</h3>
+            <button onclick="openWindow('activacion.html')">ACTIVACIÓN</button>
+            <button onclick="openWindow('panel.html')">PANEL</button>
+            <button onclick="openWindow('emulador.html')">EMULADOR</button>
+            <button onclick="openWindow('video.html')">VIDEO LIMPIEZA</button>
+            <button onclick="openWindow('ccleaner.html')">CCLEANER CMD</button>
+        </div>
+        <div class="card">
+            <h3>TRYHARD MSI</h3>
+            <button onclick="openWindow('activacion.html')">ACTIVACIÓN</button>
+            <button onclick="openWindow('panel.html')">PANEL</button>
+            <button onclick="openWindow('emulador.html')">EMULADOR</button>
+            <button onclick="openWindow('video.html')">VIDEO LIMPIEZA</button>
+            <button onclick="openWindow('ccleaner.html')">CCLEANER CMD</button>
+        </div>
+        <div class="card">
+            <h3>TRYHARD APK</h3>
+            <button onclick="openWindow('activacion.html')">ACTIVACIÓN</button>
+            <button onclick="openWindow('panel.html')">PANEL</button>
+            <button onclick="openWindow('https://www.mediafire.com/file/cga2ev3tga742q0/TRYHARD_RESET.cmd/file')">EMULADOR</button>
+            <button onclick="openWindow('video.html')">VIDEO LIMPIEZA</button>
+            <button onclick="openWindow('https://www.mediafire.com/file/cga2ev3tga742q0/TRYHARD_RESET.cmd/file')">CCLEANER CMD</button>
+        </div>
+    </div>
+    <footer>
+        TU MEJOR OPCIÓN
+    <div class="social-icons">
+        <a href="https://discord.com" target="_blank">
+            <img src="C:/Users/MARCELO/Documents/ht/discord.png" alt="Discord">
+        </a>
+        <a href="https://www.tiktok.com/@try_sensi?is_from_webapp=1&sender_device=pc" target="_blank">
+            <img src="C:/Users/MARCELO/Documents/ht/tik-tok.png" alt="TikTok">
+        </a>
+        <a href="https://www.youtube.com" target="_blank">
+            <img src="C:/Users/MARCELO/Documents/ht/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://wa.me/+51963853584" target="_blank">
+            <img src="C:/Users/MARCELO/Documents/ht/whatsapp.png" alt="WhatsApp">
+        </a>
+    </div>
+    </footer>
+    <script>
+        function openWindow(url) {
+            window.open(url, '_blank', 'width=800,height=600');
+        }
+    </script>
+</body>
+</html>
